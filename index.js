@@ -36,7 +36,6 @@ app.use((req, res, next) =>{
     next()
 })
 
-
 app.use(account(connection))
 app.use('/admin', admin(connection))
 app.use('/groups', groups(connection))
