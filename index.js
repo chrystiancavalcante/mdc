@@ -19,10 +19,10 @@ app.set('view engine', 'ejs')
 
 const init = async() => {
     const connection = await mysql.createConnection({
-        host:'127.0.0.1',
-        user:'root',
-        password: 'root',
-        database:'heroku_8c9e6d631dc2873' 
+        host:'gp96xszpzlqupw4k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        user:'nwvwc45j9nyly6hz',
+        password: 'shafuhwgjw4g718v',
+        database:'ldxl5hzxaum96zvi' 
      })
 
 app.use((req, res, next) =>{
