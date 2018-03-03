@@ -8,12 +8,18 @@ const alg ='aes-256-ctr'
 
 const init = connection => {
 app.get('/', async(req, res)=>{
-    
+    app.use((req, res, next) =>{
+        if(!req.session.user ){
+            res.redirect('/')
+        }else{
+            next()
+        }
+    }) 
     res.render('home')
 })
 app.get('/logout',(req, res) =>{
     req.session.destroy( err => {
-        res.redirect('/')
+        res.redirect('/login')
     })
 })
 app.get('/login', (req, res) =>{

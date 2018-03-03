@@ -1,64 +1,205 @@
 <!DOCTYPE html>
-<html lang="en" class="full-height">
+<html ng-app="testeMdc">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Futiba Club </title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="/css/mdb.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/futiba.css" rel="stylesheet">
+    <meta name="description" content="Teste MDC">
+    <meta name="author" content="Chrystian Cavalcante">
+    <link rel="icon" href="">
+    <title>
+        Teste MDC
+    </title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/angular/angular-messages.js"></script>
+    <script src="/javascripts/cep.js"></script>
+    <script>
+
+        angular.module("testeMdc", [])
+        angular.module("testeMdc").controller("testeMdcCtrl", function ($scope) {
+            $scope.app = "teste Mdc"
+            $scope.cadastros = [
+
+                { nome: "João Roberto da Silva", bairro: "Barra", cidade: "Rio de janeiro", uf: "RJ" },
+                { nome: "Pedro", bairro: "Copacabana", cidade: "Rio de janeiro", uf: "RJ" }
+
+            ]
+
+            $scope.adicionarCadastro = function (cadastro) {
+                $scope.cadastros.push(angular.copy(cadastro))
+                delete $scope.cadastro
+                $scope.cadastroForm.$setPristine()
+
+                $timeout(function (cadastro) {
+                    $scope.exibirMsg = true
+                    $scope.mensagem = " Cadastrado com Sucesso!"
+                }, 2000)
+
+            }
+
+            $scope.edit = function (cadastro, i) {
+                $scope.update = angular.copy(cadastro)
+                index = i
+            }
+            $scope.save = function () {
+                $scope.cadastros[index] = $scope.update
+                $scope.update = ""
+                delete $scope.cadastro
+                $scope.cadastroForm.$setPristine()
+            }
+
+            $scope.apagarCadastros = function (cadastros) {
+                $scope.cadastros = cadastros.filter(function (cadastro) {
+                    if (!cadastro.selecionado) return cadastro
+                })
+            }
+            $scope.isCadastroSelecionado = function (cadastros) {
+                return cadastros.some(function (cadastro) {
+                    return cadastro.selecionado
+                })
+            }
+            $scope.ordenarPor = function (campo) {
+                $scope.criterioDeOrdenacao = campo
+                $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao
+            }
+        })
+    </script>
 </head>
 
-<body>
-    <header>
-        <!--Navbar-->
-        <nav class="navbar-home navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="/img-futiba-club/logo.png" height="30" alt="Futiba Club">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
-                    <% include elements/menu_itens %>                    
-                </div>
-            </div>
-        </nav>
-        <!--Intro Section-->
-        <section class="view intro-2 hm-gradient">
-            <div class="full-bg-img">
-                <div class="container flex-center">
-                    <div class="row flex-center">
-                        <div class="col-md-10 col-lg-6 text-center text-md-left margins">
-                            <div class="white-text">
-                                <img class="img-fluid" alt="" src="/img-futiba-club/logo2.png" />
-                                <h1 class="h1-responsive font-bold mt-sm-5 wow fadeInLeft" data-wow-delay="0.3s">Desafie seus amigos</h1>
-                                <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
-                                <h6 class="wow fadeInLeft" data-wow-delay="0.3s">Quem consegue acertar mais jogos da Copa e do Brasileirão?</h6>                                
-                                <% if(!user){ %>
-                                <a class="btn btn-white dark-grey-text font-bold wow fadeInLeft" data-wow-delay="0.3s" href="/new-account">Criar conta</a>
+<body ng-controller="testeMdcCtrl">
+    <nav class="navbar navbar-dark bg-dark sticky-top flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
+            <img src="/images/logo.png" width="120" height="50">
+        </a>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block  sidebar">
+                <div class="sidebar-sticky">
+                    <br>
+                    <ul class="nav flex-column">
+                        <% if(user){ %>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">
+                                    </br>
+                                    <img src="/images/perfil.png" width="50" height="50" class="img-responsive" id="perfil" alt="Administrador">
+                                    <span class="sr-only"></span>
+                                    <%= user.name %>
+                                </a>
+                            </li>
+                            <br>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="modal" data-target="#Modal" href="#">
+                                    <span data-feather="users"></span>
+                                    Cadastro
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">
+                                    <span data-feather="users"></span>
+                                    Logout
+                                </a>
+                            </li>
+                            <% }else{ %>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="/login">
+                                        </br>
+                                        <img src="/images/avatar.png" width="50" height="50" class="img-responsive" alt="Administrador">
+                                        <span class="sr-only"></span>
+                                        Admin
+                                    </a>
+                                </li>
+                                <br>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login">
+                                        <span data-feather="users"></span>
+                                        Login
+                                    </a>
+                                </li>
                                 <% } %>
-                                <a class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s" href="/classification">Ver classificação</a>     
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6 hidden-md-down wow fadeInRight d-flex justify-content-center" data-wow-delay="0.3s">
-                            <img src="/img-futiba-club/mock.png">
-                        </div>
-                    </div>
+                    </ul>
                 </div>
-            </section> 
-        </header>
-     </div>
-       
- <% include elements/footer %>
- 
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                    <h1 id="h1">Cadastro</h1>
+                </div>
+                <div class="table-responsive">
+                    <input class="form-control" id="busca" type="text" ng-model="criterioDeBusca" placeholder="O que você está buscando?" />
+                    <br>
+                    <table ng-show="cadastros.length > 0" class="table table-striped table-dark table-sm">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Nome</th>
+                                <th>
+                                    <a href="" ng-click="ordenarPor('bairro')">
+                                        <img src="glyphicons/glyphicons/png/glyphicons-409-sort-by-attributes.png">
+                                    </a> Bairro</th>
+                                <th>
+                                    <a href="" ng-click="ordenarPor('nome')">
+                                        <img src="glyphicons/glyphicons/png/glyphicons-404-sorting.png">
+                                    </a> Cidade</th>
+                                <th>
+                                    <a href="" ng-click="ordenarPor('nome')">
+                                        <img src="glyphicons/glyphicons/png/glyphicons-404-sorting.png">
+                                    </a> Estado</th>
+                                    <th></th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr ng-class="{'selecionado negrito': cadastro.selecionado}" ng-repeat="cadastro in cadastros  | filter:criterioDeBusca |  orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                <td>
+                                    <% if(user){ %>
+                                        <input type="checkbox" ng-model="cadastro.selecionado" />
+                                        <% } %>
+                                </td>
+                                <td>{{cadastro.nome}}</td>
+                                <td>{{cadastro.bairro}}</td>
+                                <td>{{cadastro.cidade}}</td>
+                                <td>{{cadastro.uf}}</td>
+                                <td>
+                                    <% if(user)  { %>
+                                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#edit" ng-click="edit(cadastro, $index)">editar</button>
+                                     <% } %>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <% if(user){ %>
+                        <button type="button" data-toggle="modal" data-target="#Modal" class="btn btn-outline-success">+ Incluir</button>
+                        <button class="btn btn-outline-danger" ng-click="apagarCadastros(cadastros)" ng-if="isCadastroSelecionado(cadastros)">- Excluir</button>
+                        <% } %>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!--====================Modal=========================-->
+
+    <% include elements/modal %>
+        <% include elements/editar %>
+            <!--=============================Footer========================-->
+
+            <script src="/js/jquery-3.3.1.min.js"></script>
+            <script>window.jQuery || document.write('<script src="/javascripts/vendor/jquery-slim.min.js"><\/script>')</script>
+            <script src="/javascripts/vendor/popper.min.js"></script>
+            <script src="/javascripts/bootstrap.min.js"></script>
+            <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+            <script>
+                feather.replace()
+            </script>
+
+            <!-- Graphs -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+            <script src="https://unpkg.com/vanilla-masker@1.2.0/build/vanilla-masker.min.js"></script>
+
+</body>
+
+</html>
