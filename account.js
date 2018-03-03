@@ -62,14 +62,9 @@ app.post('/login', async(req, res) =>{
     if(rows.length===0){
         res.render('login', { error: 'Usuário e/ou senha inválidos.'})
     }else{
-            const pwd = req.body.passwd
-            function crypt(Text){       
-                const cipher = crypto.createCipher(alg, pwd)
-                const crypted = cipher.update(Text, 'utf8', 'hex')
-                return crypted
-            } 
-            if(rows[0].passwd===(crypt('passwd'))){
-         
+           
+           
+        if(rows[0].passwd===req.body.passwd){
             const userDb = rows[0]
             const user = {
                 id: userDb.id,
