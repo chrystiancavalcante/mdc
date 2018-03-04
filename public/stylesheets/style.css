@@ -1,5 +1,10 @@
 
-
+#card{
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: ;
+  margin-right: 90px
+}
 
 body {
   font-size: .875rem;
