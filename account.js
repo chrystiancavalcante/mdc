@@ -4,7 +4,6 @@ const fs = require('fs')
 const crypto = require ('crypto')
 const alg ='aes-256-ctr'
 
-
 const init = connection => {
 app.get('/', async(req, res)=>{
     app.use((req, res, next) =>{
