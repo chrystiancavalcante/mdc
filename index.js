@@ -10,7 +10,7 @@ const admin = require('./admin')
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use(session({
-    secret: 'softwarepro',
+    secret: 'testemdc',
     resave: true,
     saveUninitialized: true
 }))
