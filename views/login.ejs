@@ -13,45 +13,49 @@
     <!-- Material Design Bootstrap -->
     <link href="/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="/stylesheet/style.css" rel="stylesheet">
-    <link href="/css/mdc-interno.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/futiba-interno.css" rel="stylesheet">
+    <link href="/css/signin.css" rel="stylesheet">
 
-    
 </head>
-<body class=" bg-dark">
-<section class="content">
-    <div class="container ">
-        <div class="row">
-            <div class="card col">
-                <div class="card-body">
-                <form class="col" method="post">
-                     <img src="/images/logo.png" class="img-fluid" width="150" height="50"><br>
+
+<body class="bg-dark">
+
+    <section class="content">
+        <!-- <div class="container">
+        <div class="row">-->
+        <div class="card col">
+            <div class="card-body">
+                <form class="form-signin" method="post">
+                    <img class="mb-4" src="/images/logo.png" alt="logo" width="150" height="60">
                     <hr>
-                     <p class="h5 text-center mb-4">Efetue seu Login</p>
+                    <p class="h5 text-center text-muted mb-4">Efetue seu login</p>
+                    <br>
                     <div class="md-form">
                         <i class="fa fa-envelope prefix grey-text"></i>
                         <input type="text" id="orangeForm-email" class="form-control" name="email">
-                        <label for="orangeForm-email">Login</label>
+                        <label for="orangeForm-email">E-mail</label>
                     </div>
-                
+
                     <div class="md-form">
                         <i class="fa fa-lock prefix grey-text"></i>
                         <input type="password" id="orangeForm-pass" class="form-control" name="passwd">
                         <label for="orangeForm-pass">Senha</label>
                     </div>
                     <% if(error){ %>
-                        <p><%= error %></p>     
-                        <% } %> 
-                    <div class="text-center">
-                        <button class="form-control btn btn-primary">Entrar</button>
-                        <small>Por favor entre com o login "Teste" e a Senha "Teste123"</small>
-                    </div>
+                        <p>
+                            <%= error %>
+                        </p>
+                        <% } %>
+                            <div class="text-center">
+                                <button class=" btn btn-primary btn-block">Entrar</button>
+                            </div>
+                            <small class="text-center text-muted">Entre com Login "teste" e a Senha "teste123"</small>
                 </form>
-                </div>
-             </div>  
             </div>
         </div>
+        <!--  </div>
+        </div>-->
     </section>
-    <br><br>
-    
+
     <% include elements/footer %>

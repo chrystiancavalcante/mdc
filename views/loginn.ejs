@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Teste MDC</title>
+    <!-- Font Awesome -->
+       <!-- Bootstrap core CSS -->
+       <link href="/stylesheets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+       <!-- Custom styles for this template -->
+       <link href="/css/signin.css" rel="stylesheet">
+     </head>
+   
+     <body class="text-center bg-dark">
+       <div class="card">
+       <form method="post" class="form-signin">
+         <img class="mb-4" src="/images/logo.png" alt="logo" width="130" height="72">
+         <hr>
+         <h3 class="h3 mb-3 text-muted font-weight-normal">Efetue seu login</h3>
+         <br>
+         <label for="inputEmail" class="sr-only">Login</label>
+         <input name="email" type="email" id="Form-Email" class="form-control" placeholder="Entre com o login" autofocus>
+         <br>
+         <label for="inputPasswd" class="sr-only">Senha</label>
+         <input name"passwd" type="password" id="Form-pass" class="form-control" placeholder="Senha">
+        
+         <% if(error){ %>
+           <p><%= error %></p>     
+           <% } %> 
+         <button class="btn btn-primary btn-block">Entrar</button>
+         <p class="mt-5 mb-3 text-muted">Por favor entre com o login "teste" e a senha "teste123"</p>
+       </form>
+     </div>
+    
+    <% include elements/footer %>

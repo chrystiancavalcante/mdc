@@ -5,7 +5,6 @@ const crypto = require ('crypto')
 const alg ='aes-256-ctr'
 
 
-
 const init = connection => {
 app.get('/', async(req, res)=>{
     app.use((req, res, next) =>{
@@ -25,6 +24,7 @@ app.get('/logout',(req, res) =>{
 app.get('/login', (req, res) =>{
     res.render('login', {error: false})
 })
+
 app.post('/new-account', async(req, res) => {
     const [rows, fields] = await connection.execute('select * from users where email = ?', [req.body.email]) 
     if(rows.length === 0){
