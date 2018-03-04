@@ -33,12 +33,12 @@
                 $scope.cadastros.push(angular.copy(cadastro))
                 delete $scope.cadastro
                 $scope.cadastroForm.$setPristine()
-
+                
                 $timeout(function (cadastro) {
                     $scope.exibirMsg = true
                     $scope.mensagem = " Cadastrado com Sucesso!"
                 }, 2000)
-
+                
             }
 
             $scope.edit = function (cadastro, i) {
@@ -48,8 +48,7 @@
             $scope.save = function () {
                 $scope.cadastros[index] = $scope.update
                 $scope.update = ""
-                delete $scope.cadastro
-                $scope.cadastroForm.$setPristine()
+           
             }
 
             $scope.apagarCadastros = function (cadastros) {
@@ -67,7 +66,7 @@
                 $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao
             }
         })
-        
+
     </script>
 </head>
 
