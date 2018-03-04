@@ -7,51 +7,33 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Teste MDC</title>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="/css/mdb.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="/stylesheet/style.css" rel="stylesheet">
-    <link href="/css/mdc-interno.css" rel="stylesheet">
+       <!-- Bootstrap core CSS -->
+       <link href="/stylesheets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    
-</head>
-<body class=" bg-dark">
-<section class="content">
-    <div class="container ">
-        <div class="row">
-            <div class="card col">
-                <div class="card-body">
-                <form class="col" method="post">
-                     <img src="/images/logo.png" class="img-fluid" width="150" height="50"><br>
-                    <hr>
-                     <p class="h5 text-center mb-4">Efetue seu Login</p>
-                    <div class="md-form">
-                        <i class="fa fa-envelope prefix grey-text"></i>
-                        <input type="text" id="orangeForm-email" class="form-control" name="email">
-                        <label for="orangeForm-email">Login</label>
-                    </div>
-                
-                    <div class="md-form">
-                        <i class="fa fa-lock prefix grey-text"></i>
-                        <input type="password" id="orangeForm-pass" class="form-control" name="passwd">
-                        <label for="orangeForm-pass">Senha</label>
-                    </div>
-                    <% if(error){ %>
-                        <p><%= error %></p>     
-                        <% } %> 
-                    <div class="text-center">
-                        <button class="form-control btn btn-primary">Entrar</button>
-                        <small>Por favor entre com o login "Teste" e a Senha "Teste123"</small>
-                    </div>
-                </form>
-                </div>
-             </div>  
-            </div>
-        </div>
-    </section>
-    <br><br>
+       <!-- Custom styles for this template -->
+       <link href="/css/signin.css" rel="stylesheet">
+     </head>
+   
+     <body class="text-center bg-dark">
+       <div class="card">
+       <form class="form-signin" method="post">
+         <img class="mb-4" src="/images/logo.png" alt="logo" width="130" height="72">
+         <hr>
+         <h3 class="h3 mb-3 text-muted font-weight-normal">Efetue seu login</h3>
+         <br>
+         <label for="inputEmail" class="sr-only">Login</label>
+         <input name="email" type="email" id="Form-Email" class="form-control" placeholder="Entre com o login" autofocus>
+         <br>
+         <label for="inputPassword" class="sr-only">Senha</label>
+         <input name"passwd" type="password" id="Form-pass" class="form-control" placeholder="Senha">
+         <div class="checkbox mb-3">
+         </div>
+         <% if(error){ %>
+           <p><%= error %></p>     
+           <% } %> 
+         <button class="btn btn-primary btn-block">Entrar</button>
+         <p class="mt-5 mb-3 text-muted">Por favor entre com o login "teste" e a senha "teste123"</p>
+       </form>
+     </div>
     
     <% include elements/footer %>
