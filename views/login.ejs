@@ -14,17 +14,18 @@
     <link href="/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/mdc-interno.css" rel="stylesheet">
+
     
 </head>
-<br><br>
-<body class=" bg-dark">
-<section class="content">
+<body class=" bg-dark fluid">
+<section class="content responsive">
     <div class="container-fluid col-5">
         <div class="row">
-            <div class="card col-10">
-                <div class="card-body">
-                <form class="col" method="post">
-                     <img src="/images/logo.png" width="230" height="100"><br>
+            <div class="card fluid col-12">
+                <div class="card-body responsive">
+                <form class="col responsive" method="post">
+                     <img src="/images/logo.png" class="img-fluid" width="150" height="50"><br>
                     <p class="h5 text-center mb-4">Efetue seu Login</p>
                     <div class="md-form">
                         <i class="fa fa-envelope prefix grey-text"></i>
@@ -50,5 +51,6 @@
             </div>
         </div>
     </section>
+    <br><br>
     
     <% include elements/footer %>
