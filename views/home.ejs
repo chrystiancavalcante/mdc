@@ -72,7 +72,7 @@
 
 <body ng-controller="testeMdcCtrl">
     <nav class="navbar navbar-dark bg-dark sticky-top flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/login">
             <img src="/images/logo.png" width="120" height="50">
         </a>
     </nav>
@@ -175,7 +175,9 @@
                     <% if(user){ %>
                         <button type="button" data-toggle="modal" data-target="#Modal" class="btn btn-outline-success">+ Incluir</button>
                         <button class="btn btn-outline-danger" ng-click="apagarCadastros(cadastros)" ng-if="isCadastroSelecionado(cadastros)">- Excluir</button>
-                        <% } %>
+                        <% }else{ %>
+                         <a  href="/login"><button type="button"  class="btn btn-outline-success">+ Incluir</button></a>
+                      <%  } %>
                 </div>
             </main>
         </div>
