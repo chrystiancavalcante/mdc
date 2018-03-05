@@ -8,7 +8,7 @@ const init = connection => {
 app.get('/', async(req, res)=>{
     app.use((req, res, next) =>{
         if(!req.session.user ){
-            res.redirect('/')
+            res.redirect('/login')
         }else{
             next()
         }
