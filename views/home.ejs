@@ -17,6 +17,7 @@
     <script src="/lib/angular/angular.js"></script>
     <script src="/lib/angular/angular-messages.js"></script>
     <script src="/javascripts/cep.js"></script>
+    <script src="/javascript/bootbox.js"></script>
     <script>
 
         angular.module("testeMdc", [])
@@ -32,13 +33,10 @@
             $scope.adicionarCadastro = function (cadastro) {
                 $scope.cadastros.push(angular.copy(cadastro))
                 delete $scope.cadastro
+                alert("Cadastrado com sucesso!")
                 $scope.cadastroForm.$setPristine()
                 
-                $timeout(function (cadastro) {
-                    $scope.exibirMsg = true
-                    $scope.mensagem = " Cadastrado com Sucesso!"
-                }, 2000)
-                
+                               
             }
 
             $scope.edit = function (cadastro, i) {
@@ -48,12 +46,14 @@
             $scope.save = function () {
                 $scope.cadastros[index] = $scope.update
                 $scope.update = ""
-           
+                alert("Cadastrado com sucesso!")
             }
 
             $scope.apagarCadastros = function (cadastros) {
                 $scope.cadastros = cadastros.filter(function (cadastro) {
                     if (!cadastro.selecionado) return cadastro
+                    alert("Deseja excluir cadastro ?")
+
                 })
             }
             $scope.isCadastroSelecionado = function (cadastros) {

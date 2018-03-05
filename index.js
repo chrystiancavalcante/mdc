@@ -23,6 +23,7 @@ const init = async() => {
         user:'nwvwc45j9nyly6hz',
         password: 'shafuhwgjw4g718v',
         database:'ldxl5hzxaum96zvi'
+
      })
 
 app.use((req, res, next) =>{
