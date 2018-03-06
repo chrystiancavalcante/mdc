@@ -17,7 +17,7 @@
     <script src="/lib/angular/angular.js"></script>
     <script src="/lib/angular/angular-messages.js"></script>
     <script src="/javascripts/cep.js"></script>
-    <script src="/javascript/bootbox.js"></script>
+    <script src="/javascripts/relogio.js"></script>
     <script>
 
         angular.module("testeMdc", [])
@@ -26,7 +26,7 @@
             $scope.cadastros = [
 
                 { nome: "João Roberto da Silva", bairro: "Barra", cep:"22641-191", cidade: "Rio de janeiro", uf: "RJ" },
-                { nome: "Pedro", bairro: "Copacabana", cep:"22641-190", cidade: "Rio de janeiro", uf: "RJ" }
+                { nome: "Pedro", bairro: "Santos", cep:"22641-190", cidade: "São Paulo", uf: "SP" }
 
             ]
 
@@ -71,14 +71,14 @@
 </head>
 
 <body ng-controller="testeMdcCtrl">
-    <nav class="navbar navbar-dark bg-dark sticky-top flex-md-nowrap p-0">
+    <nav class="navbar navbar-dark dark sticky-top flex-md-nowrap p-0">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
-            <img src="/images/logo.png" width="120" height="50">
+            <img src="/images/logo.png" class="img-fluid" width="70" height="40">
         </a>
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-md-block  sidebar">
+            <nav class="col-md-2 d-none d-md-block sidebar">
                 <div class="sidebar-sticky">
                     <br>
                     <ul class="nav flex-column">
@@ -86,7 +86,7 @@
                             <li class="nav-item">
                                 <a class="nav-link active" href="#">
                                     </br>
-                                    <img src="/images/perfil.png" width="50" height="50" class="img-responsive" id="perfil" alt="Administrador">
+                                    <img src="/images/perfil.png" width="50" height="50" class="img-fluid" id="perfil" alt="Administrador">
                                     <span class="sr-only"></span>
                                     <%= user.name %>
                                 </a>
@@ -114,7 +114,7 @@
                                     </a>
                                 </li>
                                 <br>
-                                <li class="nav-item">
+                                <li class="nav-item ">
                                     <a class="nav-link" href="/login">
                                         <span data-feather="users"></span>
                                         Login
@@ -124,7 +124,6 @@
                     </ul>
                 </div>
             </nav>
-
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                     <h1 id="h1">Cadastro</h1>
@@ -142,11 +141,11 @@
                                         <img src="glyphicons/glyphicons/png/glyphicons-409-sort-by-attributes.png">
                                     </a> Bairro</th>
                                 <th>
-                                    <a href="" ng-click="ordenarPor('nome')">
+                                    <a href="" ng-click="ordenarPor('cidade')">
                                         <img src="glyphicons/glyphicons/png/glyphicons-404-sorting.png">
                                     </a> Cidade</th>
                                 <th>
-                                    <a href="" ng-click="ordenarPor('nome')">
+                                    <a href="" ng-click="ordenarPor('uf')">
                                         <img src="glyphicons/glyphicons/png/glyphicons-404-sorting.png">
                                     </a> Estado</th>
                                     <th></th>
@@ -188,7 +187,6 @@
     <% include elements/modal %>
         <% include elements/editar %>
             <!--=============================Footer========================-->
-
             <script src="/js/jquery-3.3.1.min.js"></script>
             <script>window.jQuery || document.write('<script src="/javascripts/vendor/jquery-slim.min.js"><\/script>')</script>
             <script src="/javascripts/vendor/popper.min.js"></script>

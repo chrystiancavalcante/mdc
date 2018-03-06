@@ -145,7 +145,7 @@ body {
     background-color: #444;
     color: #fff
   }
- #uf, #cep, #nome, #cidade, #rua{
+ #uf, #cep, #nome, #cidade, #horas, #rua{
    background-color: #444;
    color: #fff
  }
@@ -153,3 +153,6 @@ body {
    margin-left: auto;
    margin-right: auto
  }
+#perfil{
+  border-radius: 50%
+}
