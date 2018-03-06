@@ -8,30 +8,30 @@
                 <form ng-if="update" name="cadastroForm" method="get" action=".">
                     <div class="row">
                         <div class="col-8">
-                            <label class="for">*Nome</label>
+                            <label class="for">Nome</label>
                             <input name="nome" id="nome" type="text" class="form-control" ng-model="update.nome" ng-required="true" ng-minlength="5"
-                                placeholder="Nome">
+                                placeholder="*Nome">
                         </div>
                         <div class="col-4">
-                            <label class="for">*Cep</label>
-                            <input name="cep" id="cep" value="" size="10" maxlength="9" class="form-control" type="text" ng-model="update.cep" placeholder="Digite o CEP"
+                            <label class="for">Cep</label>
+                            <input name="cep" id="cep" value="" size="10" maxlength="9" class="form-control" type="text" ng-model="update.cep" placeholder="*Digite o CEP"
                                 ng-required="true" ng-pattern="/^\d{5}-\d{3}$/">
 
                         </div>
                         <div class="form-group col-5">
-                            <label class="for">*Estado</label>
-                            <input nome: "uf" class="form-control" id="uf" size="2" ng-model="update.uf" placeholder="Estado" ng-required="true">
+                            <label class="for">Estado</label>
+                            <input nome: "uf" class="form-control" id="uf" size="2" ng-model="update.uf" placeholder="*Estado" ng-required="true">
 
                         </div>
                         <div class="col-7">
-                            <label class="for">*Cidade</label>
+                            <label class="for">Cidade</label>
                             <input name="cidade" id="cidade" size="40" type="text" class="form-control input" id="cidade" size="40" ng-model="update.cidade"
-                                ng-required="true" placeholder="Cidade">
+                                ng-required="true" placeholder="*Cidade">
                         </div>
                         <div class="col-12">
-                            <label class="for">*Endereço</label>
+                            <label class="for">Endereço</label>
                             <input name="rua" id="rua" size="60" type="text" class="form-control input" id="rua" size="60" ng-model="update.bairro" ng-required="true"
-                                placeholder="Endereço">
+                                placeholder="*Endereço">
                         </div>
                     </div>
                     <br>
