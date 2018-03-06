@@ -1,10 +1,5 @@
 
-#card{
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: ;
-  margin-right: 90px
-}
+
 
 body {
   font-size: .875rem;
@@ -151,8 +146,6 @@ body {
  }
  #perfil{
    margin-left: auto;
-   margin-right: auto
+   margin-right: auto;
+   border-radius: 50%
  }
-#perfil{
-  border-radius: 50%
-}
