@@ -126,7 +126,7 @@
                                         Login
                                     </a>
                                 </li>
-                                <% } %>
+                           <% } %>
                     </ul>
                 </div>
             </nav>
@@ -162,7 +162,7 @@
                             <tr ng-class="{'selecionado negrito': cadastro.selecionado}" ng-repeat="cadastro in cadastros  | filter:criterioDeBusca |  orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                 <td>
                                     <% if(user){ %>
-                                        <input type="checkbox" ng-model="cadastro.selecionado" />
+                                        <input type="checkbox" ng-model="cadastro.selecionado"/>
                                         <% } %>
                                 </td>
                                 <td>{{cadastro.nome}}</td>
@@ -174,7 +174,7 @@
                                         <a href="" data-toggle="modal" data-target="#edit" ng-click="edit(cadastro, $index)">
                                         <img src="glyphicons/glyphicons/png/glyphicons-31-pencil.png">
                                         </a>
-                                        <% } %>
+                                    <% } %>
                                 </td>
                             </tr>
                         </tbody>

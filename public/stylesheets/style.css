@@ -124,7 +124,7 @@ body {
     color: rgb(58, 58, 58)
   }
   .for {
-    color: #fff
+    color: rgb(184, 179, 179)
   }
   .negrito {
     font-weight: bold;
@@ -148,4 +148,8 @@ body {
    margin-left: auto;
    margin-right: auto;
    border-radius: 50%
+ }
+ #aviso{
+   text-align: center;
+   color: #fff
  }

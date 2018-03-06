@@ -13,7 +13,7 @@
                                 placeholder="*Nome">
                         </div>
                         <div class="col-4">
-                            <label class="for">Cep</label>
+                            <label class="for">CEP</label>
                             <input name="cep" id="cep" value="" size="10" maxlength="9" class="form-control" type="text" ng-model="cadastro.cep" placeholder="*Digite o CEP"
                             required ng-required="true" ng-pattern="/^\d{5}-\d{3}$/">
 
@@ -74,8 +74,8 @@
                     <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-outline-success" ng-click="adicionarCadastro(cadastro)" ng-disabled="cadastroForm.$invalid">Salvar</button>
                 </div>
-                <label class="for">
-                        Por favor, preencha os campos requeridos (*) pois pode ser que haja divergências nos dados da busca Cep.
+                <label class="small" id="aviso">
+                       OBS: Por favor, preencha todos os campos requeridos (*) pois pode ser que haja divergências nos dados da busca CEP.
                  </label>
             </div>
             
