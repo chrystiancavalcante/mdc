@@ -14,10 +14,10 @@
         crossorigin="anonymous"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link href="/css/dashboard.css" rel="stylesheet">
     <script src="/lib/angular/angular.js"></script>
     <script src="/lib/angular/angular-messages.js"></script>
     <script src="/javascripts/cep.js"></script>
-    <script src="/javascripts/relogio.js"></script>
     <script>
 
         angular.module("testeMdc", [])
@@ -25,8 +25,8 @@
             $scope.app = "teste Mdc"
             $scope.cadastros = [
 
-                { nome: "João Roberto da Silva", bairro: "Barra", cep:"22641-191", cidade: "Rio de janeiro", uf: "RJ" },
-                { nome: "Pedro", bairro: "Santos", cep:"22641-190", cidade: "São Paulo", uf: "SP" }
+                { nome: "João Roberto da Silva", bairro: "Barra", cep: "22641-191", cidade: "Rio de janeiro", uf: "RJ" },
+                { nome: "Pedro", bairro: "Santos", cep: "22641-190", cidade: "São Paulo", uf: "SP" }
 
             ]
 
@@ -35,8 +35,8 @@
                 delete $scope.cadastro
                 alert("Cadastrado com sucesso!")
                 $scope.cadastroForm.$setPristine()
-                
-                               
+
+
             }
 
             $scope.edit = function (cadastro, i) {
@@ -70,20 +70,24 @@
     </script>
 </head>
 
-<body ng-controller="testeMdcCtrl">
-    <nav class="navbar navbar-dark dark sticky-top flex-md-nowrap p-0">
+<body class="bg-dark" ng-controller="testeMdcCtrl">
+    <nav class="navbar navbar-dark bg-dark sticky-top flex-md-nowrap p-0">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
-            <img src="/images/logo.png" class="img-fluid" width="70" height="40">
+            <img src="/images/logo.png" class="img-fluid" width="50" height="40">
         </a>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-md-block sidebar">
+            <nav class="col-md-2 d-none d-md-block dark sidebar">
                 <div class="sidebar-sticky">
-                    <br>
                     <ul class="nav flex-column">
                         <% if(user){ %>
-                            <li class="nav-item">
+                            <li class="row nav-item bg-dark">
                                 <a class="nav-link active" href="#">
                                     </br>
                                     <img src="/images/perfil.png" width="50" height="50" class="img-fluid" id="perfil" alt="Administrador">
@@ -91,7 +95,6 @@
                                     <%= user.name %>
                                 </a>
                             </li>
-                            <br>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target="#Modal" href="#">
                                     <span data-feather="file"></span>
@@ -105,9 +108,9 @@
                                 </a>
                             </li>
                             <% }else{ %>
-                                <li class="nav-item">
+                                <li class="row nav-item bg-dark">
                                     <a class="nav-link active" href="/login">
-                                        </br>
+                                    </br>
                                         <img src="/images/avatar.png" width="50" height="50" id="perfil" class="img-responsive" alt="Administrador">
                                         <span class="sr-only"></span>
                                         Admin
@@ -124,7 +127,7 @@
                     </ul>
                 </div>
             </nav>
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <main role="main" class="col-md-9 ml-sm-auto bg-dark col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                     <h1 id="h1">Cadastro</h1>
                 </div>
@@ -148,7 +151,7 @@
                                     <a href="" ng-click="ordenarPor('uf')">
                                         <img src="glyphicons/glyphicons/png/glyphicons-404-sorting.png">
                                     </a> Estado</th>
-                                    <th></th>
+                                <th></th>
                             </tr>
 
                         </thead>
@@ -166,18 +169,20 @@
                                 <td>
                                     <% if(user)  { %>
                                         <button class="btn btn-outline-primary" data-toggle="modal" data-target="#edit" ng-click="edit(cadastro, $index)">editar</button>
-                                     <% } %>
+                                        <% } %>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <% if(user){ %>
-                        <button type="button" data-toggle="modal" data-target="#Modal" class="btn btn-outline-success">+ Incluir</button>
-                        <button class="btn btn-outline-danger" ng-click="apagarCadastros(cadastros)" ng-if="isCadastroSelecionado(cadastros)">- Excluir</button>
-                        <% }else{ %>
-                         <a  href="/login"><button type="button"  class="btn btn-outline-success">+ Incluir</button></a>
-                      <%  } %>
                 </div>
+                <% if(user){ %>
+                    <button type="button" data-toggle="modal" data-target="#Modal" class="btn btn-outline-success">+ Incluir</button>
+                    <button class="btn btn-outline-danger" ng-click="apagarCadastros(cadastros)" ng-if="isCadastroSelecionado(cadastros)">- Excluir</button>
+                    <% }else{ %>
+                        <a href="/login">
+                            <button type="button" class="btn btn-outline-success">+ Incluir</button>
+                        </a>
+                        <%  } %>
             </main>
         </div>
     </div>
@@ -192,7 +197,39 @@
             <script src="/javascripts/vendor/popper.min.js"></script>
             <script src="/javascripts/bootstrap.min.js"></script>
             <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-         
-</body>
+            <script>
+              feather.replace()
+            </script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+            <script>
+                    var ctx = document.getElementById("myChart");
+                    var myChart = new Chart(ctx, {
+                      type: 'line',
+                      data: {
+                        labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                        datasets: [{
+                          data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+                          lineTension: 0,
+                          backgroundColor: 'transparent',
+                          borderColor: '#007bff',
+                          borderWidth: 4,
+                          pointBackgroundColor: '#007bff'
+                        }]
+                      },
+                      options: {
+                        scales: {
+                          yAxes: [{
+                            ticks: {
+                              beginAtZero: false
+                            }
+                          }]
+                        },
+                        legend: {
+                          display: false,
+                        }
+                      }
+                    });
+                  </script>
+        </body>
 
 </html>
