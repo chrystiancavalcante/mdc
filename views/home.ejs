@@ -171,7 +171,9 @@
                                 <td>{{cadastro.uf}}</td>
                                 <td>
                                     <% if(user)  { %>
-                                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#edit" ng-click="edit(cadastro, $index)">editar</button>
+                                        <a href="" data-toggle="modal" data-target="#edit" ng-click="edit(cadastro, $index)">
+                                        <img src="glyphicons/glyphicons/png/glyphicons-31-pencil.png">
+                                        </a>
                                         <% } %>
                                 </td>
                             </tr>
