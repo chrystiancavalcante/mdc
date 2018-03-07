@@ -1,6 +1,8 @@
 
 
-
+#backgroud{
+  background-image: url(/imagens/fundo.jpg)
+}
 body {
   font-size: .875rem;
   background-color:#222;
@@ -130,7 +132,7 @@ body {
     font-weight: bold;
   }
   .selecionado {
-    background-color: rgb(248, 13, 13);
+    background-color: rgb(248, 4, 17);
   }
   #busca {
     background-color: #444;

@@ -1,0 +1,39 @@
+<nav class="col-md-2 d-none d-md-block dark sidebar">
+        <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+                <% if(user){ %>
+                    <li class="row nav-item bg-dark">
+                        <a class="nav-link active" href="#">
+                            </br>
+                            <img src="/images/perfil.png" width="50" height="50" class="img-fluid" id="perfil" alt="Administrador">
+                            <span class="sr-only"></span>
+                            <%= user.name %>
+                        </a>
+                    </li>
+                </br>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#Modal" href="#">
+                            <span data-feather="file"></span>
+                            Cadastro
+                        </a>
+                    </li>
+                    <% }else{ %>
+                        <li class="row nav-item bg-dark">
+                            <a class="nav-link active" href="/login">
+                            </br>
+                                <img src="/images/avatar.png" width="50" height="50" id="perfil" class="img-responsive" alt="Administrador">
+                                <span class="sr-only"></span>
+                                Admin
+                            </a>
+                        </li>
+                    </br>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/login">
+                                <span data-feather="users"></span>
+                                Login
+                            </a>
+                        </li>
+                   <% } %>
+            </ul>
+        </div>
+    </nav>
