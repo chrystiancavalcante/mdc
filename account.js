@@ -1,9 +1,12 @@
 const express = require ('express')
 const app = express.Router()
+<<<<<<< HEAD
 const fs = require('fs')
 const crypto = require ('crypto')
 const alg ='aes-256-ctr'
 
+=======
+>>>>>>> 6a123ff0112201985a5ac54671efe1206a0f1bb0
 
 const init = connection => {
 app.get('/', async(req, res)=>{
@@ -24,7 +27,10 @@ app.get('/logout',(req, res) =>{
 app.get('/login', (req, res) =>{
     res.render('login', {error: false})
 })
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a123ff0112201985a5ac54671efe1206a0f1bb0
 
 app.post('/login', async(req, res) =>{
     const [rows, fields] = await connection.execute('select * from users where email = ?', [req.body.email])
