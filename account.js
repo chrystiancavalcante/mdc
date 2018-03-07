@@ -1,8 +1,12 @@
 const express = require ('express')
 const app = express.Router()
+<<<<<<< HEAD
 const fs = require('fs')
 const crypto = require ('crypto')
 const alg ='aes-256-ctr'
+=======
+
+>>>>>>> ec81fd2def29ee3a532b9447788439c4063353b6
 
 const init = connection => {
 app.get('/', async(req, res)=>{
@@ -23,6 +27,7 @@ app.get('/logout',(req, res) =>{
 app.get('/login', (req, res) =>{
     res.render('login', {error: false})
 })
+<<<<<<< HEAD
 
 app.post('/new-account', async(req, res) => {
     const [rows, fields] = await connection.execute('select * from users where email = ?', [req.body.email]) 
@@ -47,15 +52,9 @@ app.post('/new-account', async(req, res) => {
     }
     req.session.user = user
         res.redirect('/')
+=======
+>>>>>>> ec81fd2def29ee3a532b9447788439c4063353b6
 
-    }else{
-        
-        res.render('new-account', {
-            error: 'Usuário já existente'
-        })
-    } 
-    
-})
 app.post('/login', async(req, res) =>{
     const [rows, fields] = await connection.execute('select * from users where email = ?', [req.body.email])
     if(rows.length===0){
@@ -78,9 +77,7 @@ app.post('/login', async(req, res) =>{
         }
     }   
 })
-app.get('/new-account',(req, res)=>{
-    res.render('new-account', {error: false})
-})
+
 
 return app
 
