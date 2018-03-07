@@ -5,89 +5,50 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Teste MDC</title>
+    <title>Teste MDC </title>
     <!-- Font Awesome -->
-<<<<<<< HEAD
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/dashboard.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    <link href="/css/mdc-interno.css" rel="stylesheet">
     <link href="/css/signin.css" rel="stylesheet">
-
 </head>
 
 <body>
-    <section class="content">
-        <!-- <div class="container">
-        <div class="row">-->
-        <div class="card col">
-            <div class="card-body">
-                <form class="form-signin" method="post">
-                    <img class="displayed" src="/images/logo.png" alt="logo" width="100" height="100">
-                    <hr>
-                    <p class="h5 text-center text-muted mb-4">Efetue seu login</p>
-                    <br>
-                    <div class="md-form">
-                        <i class="fa fa-envelope prefix grey-text"></i>
-                        <input type="text" id="orangeForm-email" class="form-control" name="email">
-                        <label for="orangeForm-email">Login</label>
-                    </div>
 
-                    <div class="md-form">
-                        <i class="fa fa-lock prefix grey-text"></i>
-                        <input type="password" id="orangeForm-pass" class="form-control" name="passwd">
-                        <label for="orangeForm-pass">Senha</label>
-                    </div>
-                    <% if(error){ %>
-                        <p>
-                            <%= error %>
-                        </p>
-                        <% } %>
-                            <div class="text-center">
-                                <button class=" btn btn-primary btn-block">Entrar</button>
-                            </div>
-                            <small class="text-center text-muted">Entre com Login "teste" e a Senha "teste123"</small>
-                </form>
-            </div>
+    <div class="card">
+        <div class="card-body">
+            <form class="form-signin" method="post">
+                <img class="displayed" src="/images/logo.png" alt="logo" width="100" height="100">
+                <hr>
+                <p class="h5 text-center text-muted mb-4">Efetue seu login</p>
+                <br>
+                <div class="md-form">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    <input type="text" id="orangeForm-email" class="form-control" name="email">
+                    <label for="orangeForm-email">Login</label>
+                </div>
+
+                <div class="md-form">
+                    <i class="fa fa-lock prefix grey-text"></i>
+                    <input type="password" id="orangeForm-pass" class="form-control" name="passwd">
+                    <label for="orangeForm-pass">Senha</label>
+                </div>
+                <% if(error){ %>
+                    <p>
+                        <%= error %>
+                    </p>
+                    <% } %>
+                        <div class="text-center">
+                            <button class=" btn btn-primary btn-block">Entrar</button>
+                        </div>
+                        <small class="text-center text-muted">Entre com Login "teste" e a Senha "teste123"</small>
+            </form>
         </div>
-        <!--  </div>
-        </div>-->
-    </section>
+    </div>
 
     <% include elements/footer %>
-=======
-       <!-- Bootstrap core CSS -->
-       <link href="/stylesheets/dist/css/bootstrap.min.css" rel="stylesheet">
-
-       <!-- Custom styles for this template -->
-       <link href="/css/signin.css" rel="stylesheet">
-     </head>
-   
-     <body class="text-center bg-dark">
-       <div class="card">
-       <form class="form-signin" method="post">
-         <img class="mb-4" src="/images/logo.png" alt="logo" width="130" height="72">
-         <hr>
-         <h3 class="h3 mb-3 text-muted font-weight-normal">Efetue seu login</h3>
-         <br>
-         <label for="inputEmail" class="sr-only">Login</label>
-         <input name="email" type="email" id="Form-Email" class="form-control" placeholder="Entre com o login" autofocus>
-         <br>
-         <label for="inputPassword" class="sr-only">Senha</label>
-         <input name"passwd" type="password" id="Form-pass" class="form-control" placeholder="Senha">
-         <div class="checkbox mb-3">
-         </div>
-         <% if(error){ %>
-           <p><%= error %></p>     
-           <% } %> 
-         <button class="btn btn-primary btn-block">Entrar</button>
-         <p class="mt-5 mb-3 text-muted">Por favor entre com o login "teste" e a senha "teste123"</p>
-       </form>
-     </div>
-    
-    <% include elements/footer %>
->>>>>>> ec81fd2def29ee3a532b9447788439c4063353b6

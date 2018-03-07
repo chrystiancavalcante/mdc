@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="testeMdc">
 <% include elements/head %>
-
+<!--=========================body=======================-->
     <body class="bg-dark" ng-controller="testeMdcCtrl">
         <% include elements/top %>
             <div class="container-fluid">
@@ -9,104 +9,9 @@
                     <% include elements/menu %>
                         <% include admin/cliente %>
                 </div>
-<<<<<<< HEAD
             </div>
-
             <!--====================Modal=========================-->
-
             <% include elements/frmCliente %>
                 <% include elements/frmEditar %>
                     <!--=============================Footer========================-->
-                    <script src="/js/jquery-3.3.1.min.js"></script>
-                    <script>window.jQuery || document.write('<script src="/javascripts/vendor/jquery-slim.min.js"><\/script>')</script>
-                    <script src="/javascripts/vendor/popper.min.js"></script>
-                    <script src="/javascripts/bootstrap.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-                    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-                    <script src="/javascripts/mychart.js"></script>
-                    <script>
-                        feather.replace()
-                    </script>
-    </body>
-=======
-            </nav>
-
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                    <h1 id="h1">Cadastro</h1>
-                </div>
-                <div class="table-responsive">
-                    <input class="form-control" id="busca" type="text" ng-model="criterioDeBusca" placeholder="O que você está buscando?" />
-                    <br>
-                    <table ng-show="cadastros.length > 0" class="table table-striped table-dark table-sm">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Nome</th>
-                                <th>
-                                    <a href="" ng-click="ordenarPor('bairro')">
-                                        <img src="glyphicons/glyphicons/png/glyphicons-409-sort-by-attributes.png">
-                                    </a> Bairro</th>
-                                <th>
-                                    <a href="" ng-click="ordenarPor('cidade')">
-                                        <img src="glyphicons/glyphicons/png/glyphicons-404-sorting.png">
-                                    </a> Cidade</th>
-                                <th>
-                                    <a href="" ng-click="ordenarPor('uf')">
-                                        <img src="glyphicons/glyphicons/png/glyphicons-404-sorting.png">
-                                    </a> Estado</th>
-                                    <th></th>
-                            </tr>
-
-                        </thead>
-                        <tbody>
-                            <tr ng-class="{'selecionado negrito': cadastro.selecionado}" ng-repeat="cadastro in cadastros  | filter:criterioDeBusca |  orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                <td>
-                                    <% if(user){ %>
-                                        <input type="checkbox" ng-model="cadastro.selecionado" />
-                                        <% } %>
-                                </td>
-                                <td>{{cadastro.nome}}</td>
-                                <td>{{cadastro.bairro}}</td>
-                                <td>{{cadastro.cidade}}</td>
-                                <td>{{cadastro.uf}}</td>
-                                <td>
-                                    <% if(user)  { %>
-                                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#edit" ng-click="edit(cadastro, $index)">editar</button>
-                                     <% } %>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <% if(user){ %>
-                        <button type="button" data-toggle="modal" data-target="#Modal" class="btn btn-outline-success">+ Incluir</button>
-                        <button class="btn btn-outline-danger" ng-click="apagarCadastros(cadastros)" ng-if="isCadastroSelecionado(cadastros)">- Excluir</button>
-                        <% } %>
-                </div>
-            </main>
-        </div>
-    </div>
-
-    <!--====================Modal=========================-->
-
-    <% include elements/modal %>
-        <% include elements/editar %>
-            <!--=============================Footer========================-->
-
-            <script src="/js/jquery-3.3.1.min.js"></script>
-            <script>window.jQuery || document.write('<script src="/javascripts/vendor/jquery-slim.min.js"><\/script>')</script>
-            <script src="/javascripts/vendor/popper.min.js"></script>
-            <script src="/javascripts/bootstrap.min.js"></script>
-            <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-            <script>
-                feather.replace()
-            </script>
-
-            <!-- Graphs -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-            <script src="https://unpkg.com/vanilla-masker@1.2.0/build/vanilla-masker.min.js"></script>
-
-</body>
->>>>>>> ec81fd2def29ee3a532b9447788439c4063353b6
-
-</html>
+                    <% include elements/footer %>
